@@ -1,0 +1,132 @@
+.email-panel {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.email-panel h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.email-panel h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inbox-section {
+  margin-bottom: 30px;
+}
+
+.create-inbox-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: var(--interactive-accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.create-inbox-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.create-inbox-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.inbox-address {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inbox-address label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.inbox-address code {
+  padding: 10px 12px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--text-primary);
+  font-family: "Monaco", "Courier New", monospace;
+}
+
+.send-email-section {
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-field input,
+.form-field textarea {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--interactive-accent);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+.send-email-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--interactive-accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.send-email-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.send-email-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

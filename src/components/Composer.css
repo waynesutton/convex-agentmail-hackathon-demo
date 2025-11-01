@@ -1,0 +1,51 @@
+.composer {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.composer-input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.composer-input:focus {
+  border-color: var(--interactive-accent);
+}
+
+.composer-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.composer-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--interactive-accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.composer-button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.composer-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
