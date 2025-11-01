@@ -178,7 +178,26 @@ npx convex logs
 
 # Open Convex dashboard
 npx convex dashboard
+
+# Run security check before pushing to GitHub
+npm run security-check
 ```
+
+## Security
+
+This project follows security best practices:
+
+- All API keys stored in environment variables (never in code)
+- `.env.local` is git-ignored
+- Sensitive operations use Convex internal functions
+- Frontend has no secrets (only public Convex URL)
+
+**Before pushing to GitHub:**
+```bash
+npm run security-check
+```
+
+See `SECURITY.md` and `PRE-PUSH-CHECKLIST.md` for detailed security guidelines.
 
 ## Troubleshooting
 

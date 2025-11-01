@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "convex": "convex dev"
+    "convex": "convex dev",
+    "security-check": "bash scripts/security-check.sh"
   },
   "dependencies": {
     "@convex-dev/agent": "^0.2.12",
