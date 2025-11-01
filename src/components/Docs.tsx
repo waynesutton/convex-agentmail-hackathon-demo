@@ -79,7 +79,7 @@ function Docs() {
 
           <h3>Core Features (Tested & Working)</h3>
           <div className="feature-list">
-            <div className="feature-item">
+            <div className="feature-item flex-row">
               <CheckCircle className="feature-icon success" size={20} />
               <div>
                 <h4>Realtime Chat with AI Agent</h4>
@@ -91,7 +91,7 @@ function Docs() {
               </div>
             </div>
 
-            <div className="feature-item">
+            <div className="feature-item flex-row">
               <CheckCircle className="feature-icon success" size={20} />
               <div>
                 <h4>Email Integration via AgentMail</h4>
@@ -103,7 +103,7 @@ function Docs() {
               </div>
             </div>
 
-            <div className="feature-item">
+            <div className="feature-item flex-row">
               <CheckCircle className="feature-icon success" size={20} />
               <div>
                 <h4>Chat Export to Email</h4>
@@ -115,7 +115,7 @@ function Docs() {
               </div>
             </div>
 
-            <div className="feature-item">
+            <div className="feature-item flex-row">
               <CheckCircle className="feature-icon success" size={20} />
               <div>
                 <h4>Production Deployment</h4>
@@ -127,7 +127,7 @@ function Docs() {
               </div>
             </div>
 
-            <div className="feature-item">
+            <div className="feature-item flex-row">
               <CheckCircle className="feature-icon success" size={20} />
               <div>
                 <h4>Type Safety Throughout</h4>
@@ -279,31 +279,35 @@ npm run dev`}</pre>
           </ol>
 
           <h3>Clone Your Fork</h3>
-          <div className="code-block">
-            <pre>{`# Clone via HTTPS
-git clone https://github.com/YOUR-USERNAME/hackdemo-test2.git
+            <div className="code-block">
+              <pre>{`# Clone via HTTPS
+git clone https://github.com/YOUR-USERNAME/\\
+  hackdemo-test2.git
 
 # Or via SSH
-git clone git@github.com:YOUR-USERNAME/hackdemo-test2.git
+git clone git@github.com:YOUR-USERNAME/\\
+  hackdemo-test2.git
 
 # Navigate into directory
 cd hackdemo-test2
 
 # Install dependencies
 npm install`}</pre>
-          </div>
+            </div>
 
           <h3>Keep Your Fork Updated</h3>
-          <div className="code-block">
-            <pre>{`# Add upstream remote
-git remote add upstream https://github.com/ORIGINAL-OWNER/hackdemo-test2.git
+            <div className="code-block">
+              <pre>{`# Add upstream remote
+git remote add upstream \\
+  https://github.com/ORIGINAL-OWNER/\\
+  hackdemo-test2.git
 
 # Fetch upstream changes
 git fetch upstream
 
 # Merge upstream changes
 git merge upstream/main`}</pre>
-          </div>
+            </div>
         </section>
 
         <section id="convex-features">
@@ -315,9 +319,12 @@ git merge upstream/main`}</pre>
                 Messages appear instantly using <code>useQuery</code> hook. No polling, no
                 websockets to manage - Convex handles it all.
               </p>
-              <div className="code-block">
-                <pre>{`const messages = useQuery(api.messages.listMessages, { threadId });`}</pre>
-              </div>
+            <div className="code-block">
+              <pre>{`const messages = useQuery(
+  api.messages.listMessages,
+  { threadId }
+);`}</pre>
+            </div>
             </div>
 
             <div className="feature-item">
@@ -347,9 +354,11 @@ git merge upstream/main`}</pre>
                 <code>ctx.scheduler</code>.
               </p>
               <div className="code-block">
-                <pre>{`await ctx.scheduler.runAfter(0, internal.agent.generateAgentReply, {
-  threadId: args.threadId,
-});`}</pre>
+                <pre>{`await ctx.scheduler.runAfter(
+  0,
+  internal.agent.generateAgentReply,
+  { threadId: args.threadId }
+);`}</pre>
               </div>
             </div>
 
@@ -364,7 +373,9 @@ git merge upstream/main`}</pre>
 
 export const generateAgentReply = internalAction({
   handler: async (ctx, args) => {
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY
+    });
     // Call OpenAI API
   },
 });`}</pre>
@@ -376,15 +387,17 @@ export const generateAgentReply = internalAction({
               <p>
                 Convex HTTP routes handle AgentMail webhooks for inbound emails.
               </p>
-              <div className="code-block">
-                <pre>{`http.route({
+            <div className="code-block">
+              <pre>{`http.route({
   path: "/agentmail/webhook",
   method: "POST",
-  handler: httpAction(async (ctx, req) => {
-    // Handle webhook
-  }),
+  handler: httpAction(
+    async (ctx, req) => {
+      // Handle webhook
+    }
+  ),
 });`}</pre>
-              </div>
+            </div>
             </div>
 
             <div className="feature-item">
@@ -395,7 +408,10 @@ export const generateAgentReply = internalAction({
               <div className="code-block">
                 <pre>{`messages: defineTable({
   threadId: v.id("threads"),
-  role: v.union(v.literal("user"), v.literal("assistant")),
+  role: v.union(
+    v.literal("user"),
+    v.literal("assistant")
+  ),
   content: v.string(),
 }).index("by_thread", ["threadId"])`}</pre>
               </div>
@@ -424,11 +440,14 @@ export const generateAgentReply = internalAction({
               <h3>Send Emails</h3>
               <p>Send emails from your agent's inbox using the AgentMail API.</p>
               <div className="code-block">
-                <pre>{`await client.inboxes.messages.send(inboxId, {
-  to: "recipient@example.com",
-  subject: "Hello from AI Agent",
-  text: "This is an automated message",
-});`}</pre>
+                <pre>{`await client.inboxes.messages.send(
+  inboxId,
+  {
+    to: "recipient@example.com",
+    subject: "Hello from AI Agent",
+    text: "This is an automated message",
+  }
+);`}</pre>
               </div>
             </div>
 
@@ -632,7 +651,8 @@ npx convex env set AGENTMAIL_API_KEY your_key --prod`}</pre>
             <li>Get your Convex HTTP endpoint from dashboard</li>
             <li>In AgentMail dashboard, set webhook URL to:</li>
             <div className="code-block">
-              <pre>https://your-deployment.convex.site/agentmail/webhook</pre>
+              <pre>{`https://your-deployment.convex.site/\\
+  agentmail/webhook`}</pre>
             </div>
           </ol>
         </section>
