@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npx convex deploy --cmd 'npm run build'"
 
 [[redirects]]
   from = "/*"

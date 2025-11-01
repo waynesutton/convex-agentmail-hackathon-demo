@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Plus, Wrench, Package, Mail, FileText, Palette, Rocket, Settings } from "lucide-react";
 import "./Changelog.css";
 
 function Changelog() {
@@ -17,7 +18,10 @@ function Changelog() {
             <span className="date">2025-01-01</span>
           </div>
           <div className="changes">
-            <h3>✨ Added</h3>
+            <h3>
+              <Plus size={18} className="section-icon" />
+              Added
+            </h3>
             <ul>
               <li>Real-time chat interface with AI agent powered by OpenAI GPT-4o-mini</li>
               <li>AgentMail integration for sending and receiving emails</li>
@@ -35,7 +39,10 @@ function Changelog() {
               <li>SPA routing support for Netlify</li>
             </ul>
 
-            <h3>🏗️ Technical</h3>
+            <h3>
+              <Wrench size={18} className="section-icon" />
+              Technical
+            </h3>
             <ul>
               <li>React 18 with TypeScript</li>
               <li>Vite for build tooling</li>
@@ -47,7 +54,10 @@ function Changelog() {
               <li>Separated Node.js actions from queries/mutations</li>
             </ul>
 
-            <h3>📦 Convex Features</h3>
+            <h3>
+              <Package size={18} className="section-icon" />
+              Convex Features
+            </h3>
             <ul>
               <li>Realtime subscriptions with <code>useQuery</code></li>
               <li>Mutations for data updates</li>
@@ -58,7 +68,10 @@ function Changelog() {
               <li>Database indexes for performance</li>
             </ul>
 
-            <h3>📧 AgentMail Features</h3>
+            <h3>
+              <Mail size={18} className="section-icon" />
+              AgentMail Features
+            </h3>
             <ul>
               <li>Programmatic inbox creation</li>
               <li>Email sending from agent inboxes</li>
@@ -66,7 +79,10 @@ function Changelog() {
               <li>Inbox mapping per chat thread</li>
             </ul>
 
-            <h3>📝 Documentation</h3>
+            <h3>
+              <FileText size={18} className="section-icon" />
+              Documentation
+            </h3>
             <ul>
               <li>Comprehensive README with setup instructions</li>
               <li>Detailed documentation page with:
@@ -86,7 +102,10 @@ function Changelog() {
               <li>Files reference (files.md)</li>
             </ul>
 
-            <h3>🎨 UI/UX</h3>
+            <h3>
+              <Palette size={18} className="section-icon" />
+              UI/UX
+            </h3>
             <ul>
               <li>Tan color theme (#faf8f5, #EB5601, #1a1a1a)</li>
               <li>Responsive layout for mobile and desktop</li>
@@ -104,7 +123,10 @@ function Changelog() {
             <h2>Future Plans</h2>
           </div>
           <div className="changes">
-            <h3>🚀 Planned Features</h3>
+            <h3>
+              <Rocket size={18} className="section-icon" />
+              Planned Features
+            </h3>
             <ul>
               <li>User authentication with Clerk or Convex Auth</li>
               <li>Multiple threads per user</li>
@@ -118,7 +140,10 @@ function Changelog() {
               <li>Custom AI agent instructions</li>
             </ul>
 
-            <h3>🔧 Planned Improvements</h3>
+            <h3>
+              <Settings size={18} className="section-icon" />
+              Planned Improvements
+            </h3>
             <ul>
               <li>Pagination for message history</li>
               <li>Rate limiting for API calls</li>

@@ -2,16 +2,16 @@
 
 A production-ready real-time chat application demonstrating Convex realtime backend, OpenAI AI agent responses, and AgentMail email integration.
 
-## ✨ Features
+## Features
 
-- 🔄 **Real-time chat** with AI agent powered by OpenAI GPT-4o-mini
-- 📧 **Email integration** via AgentMail for sending and receiving emails
-- 🎨 **Clean tan themed UI** based on professional design system
-- ⚡ **Type-safe** throughout with Convex validators and TypeScript
-- 🚀 **Production ready** with Netlify deployment configuration
-- 📱 **Responsive design** for mobile and desktop
+- Real-time chat with AI agent powered by OpenAI GPT-4o-mini
+- Email integration via AgentMail for sending and receiving emails
+- Clean tan themed UI based on professional design system
+- Type-safe throughout with Convex validators and TypeScript
+- Production ready with Netlify deployment configuration
+- Responsive design for mobile and desktop
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -23,7 +23,7 @@ A production-ready real-time chat application demonstrating Convex realtime back
 | Vite | Build tool and dev server |
 | TypeScript | Type safety throughout |
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -62,7 +62,7 @@ AGENTMAIL_API_KEY=your_agentmail_api_key
 AGENTMAIL_DOMAIN=agentmail.to
 ```
 
-## 📖 Documentation
+## Documentation
 
 Visit [/docs](/docs) in the app for comprehensive documentation including:
 
@@ -76,7 +76,7 @@ Visit [/docs](/docs) in the app for comprehensive documentation including:
 - Deployment to Netlify
 - Troubleshooting guide
 
-## 🏗 Project Structure
+## Project Structure
 
 ```
 convex/
@@ -99,7 +99,7 @@ src/
   main.tsx           # Entry point
 ```
 
-## 🔄 How It Works
+## How It Works
 
 ### Chat Flow
 1. User sends message → saved to Convex database
@@ -113,7 +113,7 @@ src/
 3. Receive emails via webhook at `/agentmail/webhook`
 4. All emails appear in chat timeline
 
-## 🌐 Deployment
+## Deployment
 
 ### Deploy to Netlify
 
@@ -145,7 +145,7 @@ In AgentMail dashboard, set webhook URL:
 https://your-deployment.convex.site/agentmail/webhook
 ```
 
-## 🎨 Tan Theme
+## Tan Theme
 
 Color palette from professional design system:
 
@@ -158,7 +158,7 @@ Color palette from professional design system:
 | Text Secondary | #6b6b6b |
 | Border | #e6e4e1 |
 
-## 📝 Development
+## Development
 
 ```bash
 # Run Convex dev server
@@ -180,7 +180,7 @@ npx convex logs
 npx convex dashboard
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Page Not Found on Netlify
 **Solution**: Ensure `netlify.toml` exists with redirect rule (included in project)
@@ -194,18 +194,18 @@ npx convex dashboard
 ### Email Not Received
 **Solution**: Configure webhook URL in AgentMail dashboard, check Convex logs
 
-## 📚 Learn More
+## Learn More
 
 - [Convex Documentation](https://docs.convex.dev)
 - [AgentMail Documentation](https://agentmail.to/docs)
 - [OpenAI API Documentation](https://platform.openai.com/docs)
 - [View Changelog](/changelog)
 
-## 📄 License
+## License
 
 MIT
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with:
 - [Convex](https://convex.dev) - Realtime backend

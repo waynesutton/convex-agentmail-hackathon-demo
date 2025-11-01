@@ -1,4 +1,15 @@
 import { Link } from "react-router-dom";
+import { 
+  RefreshCw, 
+  Bot, 
+  Mail, 
+  Palette,
+  BookOpen,
+  Code,
+  Server,
+  CheckCircle,
+  ArrowRight
+} from "lucide-react";
 import "./Docs.css";
 
 function Docs() {
@@ -36,19 +47,23 @@ function Docs() {
           </p>
           <div className="feature-grid">
             <div className="feature-card">
-              <h3>🔄 Real-time Chat</h3>
+              <RefreshCw className="feature-icon" size={24} />
+              <h3>Real-time Chat</h3>
               <p>Instant message sync with Convex subscriptions</p>
             </div>
             <div className="feature-card">
-              <h3>🤖 AI Agent</h3>
+              <Bot className="feature-icon" size={24} />
+              <h3>AI Agent</h3>
               <p>GPT-4o-mini powered responses</p>
             </div>
             <div className="feature-card">
-              <h3>📧 Email Integration</h3>
+              <Mail className="feature-icon" size={24} />
+              <h3>Email Integration</h3>
               <p>Send and receive emails via AgentMail</p>
             </div>
             <div className="feature-card">
-              <h3>🎨 Clean UI</h3>
+              <Palette className="feature-icon" size={24} />
+              <h3>Clean UI</h3>
               <p>Tan themed, production-ready interface</p>
             </div>
           </div>
