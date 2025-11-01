@@ -63,8 +63,8 @@ function Docs() {
             </div>
             <div className="feature-card">
               <Palette className="feature-icon" size={24} />
-              <h3>Clean UI</h3>
-              <p>Tan themed, production-ready interface</p>
+              <h3>Export Chats</h3>
+              <p>Send conversation transcripts to any email</p>
             </div>
           </div>
         </section>
@@ -382,6 +382,27 @@ export const generateAgentReply = internalAction({
             <li>Email content appended to thread messages</li>
             <li>UI updates in realtime showing received email</li>
           </ol>
+
+          <h3>Chat Export Flow (NEW)</h3>
+          <ol className="flow-steps">
+            <li>User clicks "Send Chat to Email" button above chat messages</li>
+            <li>Email input form appears with validation</li>
+            <li>User enters recipient email address</li>
+            <li>
+              <code>getChatTranscript</code> query formats conversation with:
+              <ul>
+                <li>Timestamps for each message</li>
+                <li>Role labels (You, AI Agent, Email)</li>
+                <li>Email metadata (subject, from, to)</li>
+                <li>Total message count and generation time</li>
+              </ul>
+            </li>
+            <li>
+              <code>sendChatTranscript</code> action emails transcript via AgentMail
+            </li>
+            <li>Success message displayed to user</li>
+            <li>Form auto-dismisses after 3 seconds</li>
+          </ol>
         </section>
 
         <section id="architecture">
@@ -402,6 +423,7 @@ src/
     Chat.tsx         # Main chat interface
     Composer.tsx     # Message input component
     EmailPanel.tsx   # Email UI
+    SendChatEmail.tsx # Export chat to email (NEW)
     Docs.tsx         # This page
     Changelog.tsx    # Version history
   App.tsx            # Root with routing

@@ -1,5 +1,5 @@
 import { v } from "convex/values";
-import { query, mutation } from "./_generated/server";
+import { query, mutation, internalQuery } from "./_generated/server";
 import { internal } from "./_generated/api";
 
 // Create a new thread
@@ -69,6 +69,58 @@ export const sendUserMessage = mutation({
     });
 
     return null;
+  },
+});
+
+// Get chat transcript formatted for email (internal)
+export const getChatTranscript = internalQuery({
+  args: { threadId: v.id("threads") },
+  returns: v.string(),
+  handler: async (ctx, args) => {
+    const messages = await ctx.db
+      .query("messages")
+      .withIndex("by_thread", (q) => q.eq("threadId", args.threadId))
+      .order("asc")
+      .collect();
+
+    if (messages.length === 0) {
+      return "No messages in this chat yet.";
+    }
+
+    let transcript = "Chat Transcript\n";
+    transcript += "=".repeat(50) + "\n\n";
+
+    for (const msg of messages) {
+      const timestamp = new Date(msg._creationTime).toLocaleString();
+      let senderName = "";
+      
+      if (msg.role === "user") {
+        senderName = "You";
+      } else if (msg.role === "assistant") {
+        senderName = "AI Agent";
+      } else if (msg.role === "email") {
+        senderName = msg.from || "Email";
+      }
+      
+      transcript += `[${timestamp}] ${senderName}:\n`;
+      transcript += `${msg.content}\n`;
+      
+      if (msg.subject) {
+        transcript += `(Email - Subject: ${msg.subject}`;
+        if (msg.to) {
+          transcript += `, To: ${msg.to}`;
+        }
+        transcript += `)\n`;
+      }
+      
+      transcript += "\n";
+    }
+
+    transcript += "=".repeat(50) + "\n";
+    transcript += `Total messages: ${messages.length}\n`;
+    transcript += `Generated: ${new Date().toLocaleString()}\n`;
+
+    return transcript;
   },
 });
 

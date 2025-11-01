@@ -6,6 +6,7 @@ A production-ready real-time chat application demonstrating Convex realtime back
 
 - Real-time chat with AI agent powered by OpenAI GPT-4o-mini
 - Email integration via AgentMail for sending and receiving emails
+- **Send chat transcript to email** - Export conversation history via email
 - Clean tan themed UI based on professional design system
 - Type-safe throughout with Convex validators and TypeScript
 - Production ready with Netlify deployment configuration
@@ -21,7 +22,7 @@ A production-ready real-time chat application demonstrating Convex realtime back
 | React 19 | UI framework |
 | React Router | Client-side routing |
 | Vite | Build tool and dev server |
-| TypeScript | Type safety throughout |
+| TypeScript | Type safety throughout with @types/node for Convex |
 
 ## Quick Start
 
@@ -112,6 +113,13 @@ src/
 2. Send emails via AgentMail API
 3. Receive emails via webhook at `/agentmail/webhook`
 4. All emails appear in chat timeline
+
+### Chat Export Flow
+1. User clicks "Send Chat to Email" button
+2. Enters recipient email address
+3. System generates formatted transcript of conversation
+4. Transcript sent via AgentMail with timestamps and role labels
+5. Includes all messages: user, AI agent, and emails
 
 ## Deployment
 

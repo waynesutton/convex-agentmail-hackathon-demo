@@ -4,6 +4,7 @@ import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { AgentMailClient } from "agentmail";
+import { Id } from "./_generated/dataModel";
 
 // Initialize AgentMail client
 const getAgentMailClient = () => {
@@ -134,4 +135,95 @@ export const sendEmail = action({
     return null;
   },
 });
+
+// Send chat transcript via email
+export const sendChatTranscript = action({
+  args: {
+    threadId: v.id("threads"),
+    recipientEmail: v.string(),
+  },
+  returns: v.null(),
+  handler: async (ctx, args): Promise<null> => {
+    // Get the chat transcript
+    const transcript: string = await ctx.runQuery(internal.messages.getChatTranscript, {
+      threadId: args.threadId,
+    });
+
+    // Send it via email using the existing sendEmail action
+    await sendEmailHelper(ctx, {
+      threadId: args.threadId,
+      to: args.recipientEmail,
+      subject: "Your Chat Transcript from Convex AgentMail Demo",
+      text: transcript,
+    });
+
+    return null;
+  },
+});
+
+// Helper function to send email (to avoid circular reference)
+async function sendEmailHelper(
+  ctx: any,
+  args: {
+    threadId: Id<"threads">;
+    to: string;
+    subject: string;
+    text: string;
+  }
+): Promise<void> {
+  const client = getAgentMailClient();
+
+  // Get or create inbox for this thread
+  let inbox: { inboxId: string; emailAddress: string; username: string; domain: string } | null = 
+    await ctx.runQuery(internal.mailQueries.getInboxByThread, {
+      threadId: args.threadId,
+    });
+
+  if (!inbox) {
+    // Create inbox
+    const username = `thread-${args.threadId.replace(":", "-")}`;
+    const domain = process.env.AGENTMAIL_DOMAIN || "agentmail.to";
+    
+    const newInbox = await client.inboxes.create({
+      username,
+      domain,
+    });
+
+    const emailAddress = `${username}@${domain}`;
+
+    await ctx.runMutation(internal.mailQueries.storeInbox, {
+      threadId: args.threadId,
+      inboxId: newInbox.inboxId,
+      emailAddress,
+      username,
+      domain,
+    });
+
+    inbox = {
+      inboxId: newInbox.inboxId,
+      emailAddress,
+      username,
+      domain,
+    };
+  }
+
+  // Send email
+  await client.inboxes.messages.send(
+    inbox.inboxId,
+    {
+      to: args.to,
+      subject: args.subject,
+      text: args.text,
+    }
+  );
+
+  // Record sent email in messages
+  await ctx.runMutation(internal.mailQueries.recordEmailMessage, {
+    threadId: args.threadId,
+    from: inbox.emailAddress,
+    to: args.to,
+    subject: args.subject,
+    content: args.text,
+  });
+}
 

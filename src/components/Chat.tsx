@@ -4,6 +4,7 @@ import { api } from "../../convex/_generated/api";
 import { Id } from "../../convex/_generated/dataModel";
 import Composer from "./Composer";
 import EmailPanel from "./EmailPanel";
+import SendChatEmail from "./SendChatEmail";
 import "./Chat.css";
 
 interface ChatProps {
@@ -32,6 +33,8 @@ function Chat({ threadId }: ChatProps) {
       </div>
 
       <div className="chat-content">
+        <SendChatEmail threadId={threadId} />
+        
         <div className="messages-container">
           {messages && messages.length === 0 && (
             <div className="empty-state">

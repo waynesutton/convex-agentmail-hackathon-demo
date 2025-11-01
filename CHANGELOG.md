@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-01-01
+
+### Added
+- **Send Chat to Email** feature - Export entire conversation via email
+  - New "Send Chat to Email" button in chat interface
+  - Email input form with validation
+  - Formatted transcript generation with timestamps
+  - Includes all messages: user, AI agent, and emails
+  - Success/error feedback messages
+  - Auto-dismiss after successful send
+- New Convex function: `getChatTranscript` query for formatting chat history
+- New Convex action: `sendChatTranscript` for emailing transcripts
+- `SendChatEmail` React component with Lucide Mail icon
+- Email validation and error handling
+- Animated success/error messages
+
+### Changed
+- Chat interface now includes export button above messages
+- Updated documentation to include chat export feature
+- Enhanced `convex/messages.ts` with transcript formatting
+- Enhanced `convex/mail.ts` with transcript email action
+
 ## [1.0.0] - 2025-01-01
 
 ### Added
@@ -145,5 +167,6 @@ netlify.toml, package.json, tsconfig.json
 
 ---
 
+[1.1.0]: https://github.com/waynesutton/convex-agentmail-hackathon-demo/releases/tag/v1.1.0
 [1.0.0]: https://github.com/waynesutton/convex-agentmail-hackathon-demo/releases/tag/v1.0.0
 
