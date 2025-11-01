@@ -19,6 +19,7 @@ function Docs() {
         <h2>Documentation</h2>
         <nav>
           <a href="#overview">Overview</a>
+          <a href="#whats-working">What's Working</a>
           <a href="#getting-started">Getting Started</a>
           <a href="#setup-cursor">Setup in Cursor</a>
           <a href="#fork-clone">Fork & Clone</a>
@@ -67,6 +68,122 @@ function Docs() {
               <p>Send conversation transcripts to any email</p>
             </div>
           </div>
+        </section>
+
+        <section id="whats-working">
+          <h2>What's Working</h2>
+          <p>
+            This app demonstrates a production-ready realtime chat system with AI and email integration.
+            Here's what's fully functional:
+          </p>
+
+          <h3>Core Features (Tested & Working)</h3>
+          <div className="feature-list">
+            <div className="feature-item">
+              <CheckCircle className="feature-icon success" size={20} />
+              <div>
+                <h4>Realtime Chat with AI Agent</h4>
+                <p>
+                  <strong>Powered by Convex + OpenAI GPT-4o-mini</strong><br/>
+                  Messages sync instantly across all clients. AI agent responds with conversation context.
+                  No manual refresh needed, all updates happen in realtime via Convex subscriptions.
+                </p>
+              </div>
+            </div>
+
+            <div className="feature-item">
+              <CheckCircle className="feature-icon success" size={20} />
+              <div>
+                <h4>Email Integration via AgentMail</h4>
+                <p>
+                  <strong>Powered by AgentMail API</strong><br/>
+                  Create unique inbox addresses per chat thread. Send and receive emails directly
+                  in the chat interface. All emails appear in the message timeline with metadata.
+                </p>
+              </div>
+            </div>
+
+            <div className="feature-item">
+              <CheckCircle className="feature-icon success" size={20} />
+              <div>
+                <h4>Chat Export to Email</h4>
+                <p>
+                  <strong>New in v1.1.0</strong><br/>
+                  Export entire conversation history to any email address. Includes formatted
+                  timestamps, role labels, and all message content.
+                </p>
+              </div>
+            </div>
+
+            <div className="feature-item">
+              <CheckCircle className="feature-icon success" size={20} />
+              <div>
+                <h4>Production Deployment</h4>
+                <p>
+                  <strong>Netlify + Convex Cloud</strong><br/>
+                  Build and deployment pipeline fully configured. SPA routing works correctly.
+                  Environment variables properly separated between frontend and backend.
+                </p>
+              </div>
+            </div>
+
+            <div className="feature-item">
+              <CheckCircle className="feature-icon success" size={20} />
+              <div>
+                <h4>Type Safety Throughout</h4>
+                <p>
+                  <strong>TypeScript + Convex Validators</strong><br/>
+                  All functions use validators for arguments and return types. Auto-generated
+                  types ensure end-to-end type safety from backend to frontend.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Recent Fixes (v1.1.1)</h3>
+          <div className="feature-item">
+            <h4>TypeScript Build Errors Resolved</h4>
+            <p>
+              <strong>Problem:</strong> Netlify builds were failing with TypeScript errors about
+              <code>process.env</code> not being recognized in Convex actions.
+            </p>
+            <p>
+              <strong>Solution:</strong> Added <code>@types/node</code> to devDependencies. This
+              provides type definitions for Node.js globals like <code>process</code>, which are
+              used in Convex actions that run in Node.js runtime.
+            </p>
+            <p>
+              <strong>Impact:</strong> Production builds now complete successfully on Netlify.
+              All 4 TypeScript errors resolved in <code>convex/agent.ts</code> and <code>convex/mail.ts</code>.
+            </p>
+          </div>
+
+          <h3>Technology Stack</h3>
+          <ul>
+            <li>
+              <strong>Convex</strong> - Realtime backend with subscriptions, scheduled functions,
+              HTTP endpoints, and database with indexes
+            </li>
+            <li>
+              <strong>OpenAI</strong> - GPT-4o-mini for AI agent responses with conversation context
+            </li>
+            <li>
+              <strong>AgentMail</strong> - Email infrastructure for agents with inbox creation,
+              sending, and webhook integration
+            </li>
+            <li>
+              <strong>React 19</strong> - Modern UI with hooks and concurrent features
+            </li>
+            <li>
+              <strong>TypeScript</strong> - End-to-end type safety with validators and generated types
+            </li>
+            <li>
+              <strong>Vite</strong> - Fast build tool and dev server
+            </li>
+            <li>
+              <strong>Netlify</strong> - Production hosting with automatic deployments
+            </li>
+          </ul>
         </section>
 
         <section id="getting-started">

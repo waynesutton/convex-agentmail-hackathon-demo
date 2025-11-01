@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2025-01-01
+
+### Fixed
+- **TypeScript Build Errors** - Added missing @types/node dependency
+  - Added `@types/node` ^22.10.5 to devDependencies
+  - Resolved process.env errors in Convex actions
+  - Fixed 4 TypeScript errors in `convex/agent.ts` and `convex/mail.ts`
+  - Netlify deployment now builds successfully
+  - All Node.js actions properly typed for production builds
+
+### Changed
+- Updated build configuration to include Node.js type definitions
+- Improved TypeScript strictness across Convex backend files
+
 ## [1.1.0] - 2025-01-01
 
 ### Added
@@ -167,6 +181,7 @@ netlify.toml, package.json, tsconfig.json
 
 ---
 
+[1.1.1]: https://github.com/waynesutton/convex-agentmail-hackathon-demo/releases/tag/v1.1.1
 [1.1.0]: https://github.com/waynesutton/convex-agentmail-hackathon-demo/releases/tag/v1.1.0
 [1.0.0]: https://github.com/waynesutton/convex-agentmail-hackathon-demo/releases/tag/v1.0.0
 

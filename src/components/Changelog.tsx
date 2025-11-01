@@ -14,6 +14,81 @@ function Changelog() {
       <div className="changelog-content">
         <div className="version-block">
           <div className="version-header">
+            <h2>v1.1.1</h2>
+            <span className="date">2025-01-01</span>
+          </div>
+          <div className="changes">
+            <h3>
+              <Wrench size={18} className="section-icon" />
+              Fixed
+            </h3>
+            <ul>
+              <li>
+                <strong>TypeScript Build Errors</strong> - Added missing @types/node dependency
+                <ul>
+                  <li>Added <code>@types/node</code> ^22.10.5 to devDependencies</li>
+                  <li>Resolved process.env errors in Convex actions</li>
+                  <li>Fixed 4 TypeScript errors in <code>convex/agent.ts</code> and <code>convex/mail.ts</code></li>
+                  <li>Netlify deployment now builds successfully</li>
+                  <li>All Node.js actions properly typed for production builds</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>
+              <Settings size={18} className="section-icon" />
+              Changed
+            </h3>
+            <ul>
+              <li>Updated build configuration to include Node.js type definitions</li>
+              <li>Improved TypeScript strictness across Convex backend files</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="version-block">
+          <div className="version-header">
+            <h2>v1.1.0</h2>
+            <span className="date">2025-01-01</span>
+          </div>
+          <div className="changes">
+            <h3>
+              <Plus size={18} className="section-icon" />
+              Added
+            </h3>
+            <ul>
+              <li>
+                <strong>Send Chat to Email</strong> feature - Export entire conversation via email
+                <ul>
+                  <li>New "Send Chat to Email" button in chat interface</li>
+                  <li>Email input form with validation</li>
+                  <li>Formatted transcript generation with timestamps</li>
+                  <li>Includes all messages: user, AI agent, and emails</li>
+                  <li>Success/error feedback messages</li>
+                  <li>Auto-dismiss after successful send</li>
+                </ul>
+              </li>
+              <li>New Convex function: <code>getChatTranscript</code> query for formatting chat history</li>
+              <li>New Convex action: <code>sendChatTranscript</code> for emailing transcripts</li>
+              <li><code>SendChatEmail</code> React component with Lucide Mail icon</li>
+              <li>Email validation and error handling</li>
+            </ul>
+
+            <h3>
+              <Settings size={18} className="section-icon" />
+              Changed
+            </h3>
+            <ul>
+              <li>Chat interface now includes export button above messages</li>
+              <li>Updated documentation to include chat export feature</li>
+              <li>Enhanced <code>convex/messages.ts</code> with transcript formatting</li>
+              <li>Enhanced <code>convex/mail.ts</code> with transcript email action</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="version-block">
+          <div className="version-header">
             <h2>v1.0.0</h2>
             <span className="date">2025-01-01</span>
           </div>
