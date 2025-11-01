@@ -1,6 +1,9 @@
 [build]
   publish = "dist"
-  command = "npx convex deploy --cmd-url-env-var-name VITE_CONVEX_URL --cmd 'npm run build'"
+  command = "npx convex deploy && npm run build"
+
+[build.environment]
+  # VITE_CONVEX_URL will be set by Convex integration or manually in Netlify UI
 
 [[redirects]]
   from = "/*"
